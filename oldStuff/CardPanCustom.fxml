@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root type="idiot.gui.CardPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" prefHeight="100.0" prefWidth="75.0" style="-fx-border-color: black; -fx-border-width: 1px; -fx-background-color: white;" fx:controller="idiot.gui.CardPane">
+   <ImageView fx:id="suitSymbol1" fitHeight="30.0" fitWidth="30.0" layoutX="23.0" layoutY="34.0" preserveRatio="true" styleClass="card">
+      <image>
+         <Image url="@images/C.png" />
+      </image>
+   </ImageView>
+   <Pane layoutX="1.0" layoutY="1.0" prefHeight="20.0" prefWidth="36.0">
+      <children>
+          <Label fx:id="faceValue1" layoutX="17.5" prefHeight="22.5" prefWidth="18.0" styleClass="faceValue" text="10">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+          <ImageView fx:id="suitSymbol2" fitHeight="12.5" fitWidth="12.0" layoutX="4.0" layoutY="5.0" preserveRatio="true" styleClass="card">
+            <image>
+               <Image url="@images/C.png" />
+            </image>
+         </ImageView>
+      </children>
+   </Pane>
+   <Pane layoutX="38.0" layoutY="79.0" prefHeight="20.0" prefWidth="36.0" rotate="180.0">
+      <children>
+         <Label fx:id="faceValue2" layoutX="17.5" prefHeight="22.5" prefWidth="18.0" styleClass="faceValue" text="10">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <ImageView fx:id="suitSymbol3" fitHeight="12.5" fitWidth="12.0" layoutX="4.0" layoutY="5.0" preserveRatio="true" styleClass="card">
+            <image>
+               <Image url="@images/C.png" />
+            </image>
+         </ImageView>
+      </children>
+   </Pane>
+   <ImageView fx:id="cardBack" fitHeight="97.5" fitWidth="72.0" layoutX="1.5" layoutY="1.5" styleClass="card" visible="false">
+      <image>
+         <Image url="@images/back.png" />
+      </image>
+   </ImageView>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+    
+</fx:root>
