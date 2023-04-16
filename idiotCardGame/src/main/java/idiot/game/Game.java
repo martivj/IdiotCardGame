@@ -210,8 +210,6 @@ public class Game {
         // otherwise save new state
         this.currentState = state;
         this.recordedGameStates.add(this.currentState);
-        System.out.println("Recorded state");
-        System.out.println(this.currentState);
     }
 
     /* write all recorded game states to file with given path */

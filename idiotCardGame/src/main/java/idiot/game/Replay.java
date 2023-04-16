@@ -41,9 +41,6 @@ public class Replay {
             System.out.println("Could not load the replay file");
         }
 
-        System.out.println(currentState);
-        System.out.println(GameStateConverter.createGameElements(currentState)[0]);
-
         // load initial set of cards to gui deck
         this.initializeGuiDeck();
 

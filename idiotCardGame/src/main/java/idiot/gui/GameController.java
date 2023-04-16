@@ -223,8 +223,6 @@ public class GameController {
         if (result.isPresent()) {
             this.game.saveReplay(result.get());
         }
-
-        this.game = null;
        
     }
 

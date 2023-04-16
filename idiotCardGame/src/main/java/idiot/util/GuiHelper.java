@@ -33,8 +33,6 @@ public class GuiHelper {
             guiCard.setVisible(false);
             guiCard.setFaceDown(true);
             
-            System.out.println(gameCard + " loaded");
-            
             if (guiCard != null)
             guiDeck.getChildren().add(guiCard);
 
@@ -99,12 +97,10 @@ public class GuiHelper {
                 // set on-click event handlers
                 if ((legalMoves != null && legalMoves.contains(card)) || (card.getOwner() instanceof CardDeck && card.isTopCard())) {
                     cardPane.setOnMouseClicked(event -> {
-                        System.out.println("Valid move: " + card.toString());
                         SELECTED_CARD = card;
                     });
                 } else {
                     cardPane.setOnMouseClicked(event -> {
-                        System.out.println("Invalid: " + card.toString());
                     });
                 }
 

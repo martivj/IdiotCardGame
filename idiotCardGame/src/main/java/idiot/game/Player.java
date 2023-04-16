@@ -78,7 +78,6 @@ public class Player {
         }
         
         // draw the top card from the deck
-        System.out.println("Drawn from deck: " + this.deck.getTopCard());
         this.deck.deal(this.hand, 1);
         this.hand.sortHand();
 
@@ -94,7 +93,6 @@ public class Player {
         return;
 
         // draw all cards from the main pile to hand
-        System.out.println("Drawn from pile: " + this.mainPile);
         this.mainPile.flushCards(this.hand);
         this.hand.sortHand();
         this.endTurn();
@@ -120,7 +118,6 @@ public class Player {
 
         // legal move -> play the card to the main pile
         card.getOwner().moveCard(card, this.mainPile);
-        System.out.println("Played card: " + card);
 
         // update number of moves played
         this.movesPlayed += 1;
