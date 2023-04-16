@@ -5,7 +5,6 @@ import java.util.List;
 
 import idiot.gui.ReplayController;
 import idiot.util.FileHelper;
-import idiot.util.GameStateConverter;
 
 public class Replay {
 
