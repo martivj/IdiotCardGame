@@ -4,7 +4,7 @@ package idiot.game.elements;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CardContainer implements Iterable<Card> {
+public abstract class CardContainer implements Iterable<Card> {
 
     /* state attributes */
 

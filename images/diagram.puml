@@ -1,0 +1,90 @@
+@startuml "Idiot Class Diagram"
+
+interface Iterator<Card> {
+    +hasNext() : boolean
+    +next() : Card
+    +remove() : void
+}
+
+interface Iterable<Card> {
+    +iterator() : Iterator<Card>
+}
+
+package idiot.util {
+
+    class GameStateConverter {
+        {static} +createGameState(gameElements: CardContainer[]): String
+        {static} +createGameElements(state: String): CardContainer[]
+    }
+
+}
+
+package idiot.game.elements {
+
+    class Card {
+        -suit: char
+        -face: int
+        +getSuit(): char
+        +getFace(): int
+        +getOwner(): CardContainer 
+        +isTopCard(): boolean 
+        +setOwner(newOwner: CardContainer): void
+        +toString(): String
+    }
+
+    abstract class CardContainer {
+        -maxSize: int
+        -cards: ArrayList<Card>
+        +getMaxCardCount(): int
+        +getCardCount(): int
+        +getTopCard(): Card
+        +getCard(n: int): Card
+        +isEmpty(): boolean
+        +addCard(card: Card): void
+        +removeCard(card: Card): void
+        +moveCard(card: Card, newContainer: CardContainer ): void
+        +iterator(): CardContainerIterator 
+        +toString(): String
+    }
+
+    class CardContainerIterator {
+        +hasNext() : boolean
+        +next() : Card
+        +remove() : void
+    }
+
+    class CardDeck {
+        -maxSize = 52
+        +fillDeck(n: int): void
+        +randomShuffle(): void
+        +shuffle(): void
+        +clear(): void
+    }
+
+    class CardHand {
+        -maxSize = 52
+        +sortHand(): void
+        +getLowestCard(): Card
+    }
+
+    class CardPile {
+        -maxSize = 52
+        flushCards(newContainer: CardContainer): void
+    }
+
+    class CardStack {
+        -maxSize = 2
+    }
+
+}
+
+GameStateConverter --> CardContainer
+
+Iterator <|.. CardContainerIterator 
+Iterable <|.. CardContainer
+CardContainer <|-- CardDeck
+CardContainer <|-- CardHand
+CardContainer <|-- CardPile
+CardContainer <|-- CardStack
+
+@enduml

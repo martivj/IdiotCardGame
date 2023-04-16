@@ -13,7 +13,7 @@ public class CardTest {
     @BeforeEach
     void setUp() {
         card = new Card('S', 7);
-        container = new CardContainer(5);
+        container = new CardStack();
     }
 
     @Test

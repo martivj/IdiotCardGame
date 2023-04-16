@@ -40,6 +40,7 @@ public class FileHelper {
         File[] files = folder.listFiles();
         List<String> fileNames = new ArrayList<>();
         for (File file : files) {
+            if (!file.isDirectory())
             fileNames.add(file.getName());
         }
         return fileNames;

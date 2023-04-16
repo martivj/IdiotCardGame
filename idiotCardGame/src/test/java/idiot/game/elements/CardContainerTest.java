@@ -11,12 +11,12 @@ class CardContainerTest {
 
     @BeforeEach
     void setUp() {
-        cardContainer = new CardContainer(5);
+        cardContainer = new CardStack();
     }
 
     @Test
     void testGetMaxCardCount() {
-        assertEquals(5, cardContainer.getMaxCardCount());
+        assertEquals(2, cardContainer.getMaxCardCount());
     }
 
     @Test
@@ -61,7 +61,7 @@ class CardContainerTest {
     @Test
     void testMoveCard() {
         Card card = new Card('C', 13);
-        CardContainer newContainer = new CardContainer(3);
+        CardContainer newContainer = new CardPile();
         cardContainer.addCard(card);
         cardContainer.moveCard(card, newContainer);
         assertEquals(0, cardContainer.getCardCount());
@@ -81,9 +81,6 @@ class CardContainerTest {
         assertEquals(card2, cardContainer.getCard(1));
         assertThrows(IllegalStateException.class, () -> {
             cardContainer.addCard(new Card('H', 9));
-            cardContainer.addCard(new Card('C', 7));
-            cardContainer.addCard(new Card('S', 1));
-            cardContainer.addCard(new Card('S', 2));
         });
     }
 
