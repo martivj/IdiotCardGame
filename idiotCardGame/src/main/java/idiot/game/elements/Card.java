@@ -56,7 +56,6 @@ public class Card {
     /* setters */
 
     public void setOwner(CardContainer newOwner) {
-        if (newOwner != null)
         this.owner = newOwner;
     }
 

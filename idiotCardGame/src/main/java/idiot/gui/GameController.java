@@ -163,7 +163,7 @@ public class GameController {
         this.deckCounter.setText("Cards: " + gameElements[0].getCardCount());
 
         // display all cards in correct positions on screen
-        GuiHelper.updateGui(gameElements, this.guiElements, this.game.getActivePlayer().getLegalMoves(), true);
+        GuiHelper.updateGui(gameElements, this.guiElements, this.game.getActivePlayer().getLegalMoves(), false);
 
     }
 
@@ -223,6 +223,8 @@ public class GameController {
         if (result.isPresent()) {
             this.game.saveReplay(result.get());
         }
+
+        this.game = null;
        
     }
 
