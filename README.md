@@ -1,6 +1,6 @@
 # IdiotCardGame
 
-This project is a simple implementation of the card game "idiot" made using JavaFX. The following documentation will include a description of the game itself, how the game was implemented and strctured in the code, an overview of the object oriented principles used, and lastly a discussion about the approach to testing.
+This project is a simple implementation of the card game "idiot" made using JavaFX. The following documentation will include a description of the game itself, how the game was implemented and structured in the code, an overview of the object oriented principles used, and lastly a discussion about the approach to testing.
 
 ## The Game
 
