@@ -48,7 +48,7 @@
                         <groupId>org.panteleyev</groupId>
                         <artifactId>jpackage-maven-plugin</artifactId>
                         <configuration>
-                            <icon>src/main/resources/idiot/icons/bytechat.png</icon>
+                            <icon>src/main/resources/idiot/icons/ace_of_spades_logo.png</icon>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -69,7 +69,7 @@
                         <groupId>org.panteleyev</groupId>
                         <artifactId>jpackage-maven-plugin</artifactId>
                         <configuration>
-                            <icon>src/main/resources/idiot/icons/bytechat.ico</icon>
+                            <icon>src/main/resources/idiot/icons/ace_of_spades_logo.ico</icon>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -90,7 +90,7 @@
                         <groupId>org.panteleyev</groupId>
                         <artifactId>jpackage-maven-plugin</artifactId>
                         <configuration>
-                            <icon>src/main/resources/idiot/icons/bytechat.icns</icon>
+                            <icon>src/main/resources/idiot/icons/ace_of_spades_logo.icns</icon>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -222,7 +222,6 @@
                         <!-- macOS options -->
                         <macPackageIdentifier>martivj.idiot</macPackageIdentifier>
                         <macPackageName>Idiot</macPackageName>
-                        <macSigningKeyUserName>Developer ID Application: Your Name (XXXXXXXXXX)</macSigningKeyUserName>
 
                     </configuration>
                 </plugin>
