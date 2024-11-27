@@ -218,11 +218,10 @@
                         <winPerUserInstall>true</winPerUserInstall>
 
                         <!-- macOS options -->
-                        <mac>
-                            <macPackageIdentifier>martivj.idiot</macPackageIdentifier>
-                            <macPackageName>Idiot</macPackageName>
-                            <macSigningKeyUserName>Developer ID Application: Your Name (XXXXXXXXXX)</macSigningKeyUserName>
-                        </mac>
+                        <macPackageIdentifier>martivj.idiot</macPackageIdentifier>
+                        <macPackageName>Idiot</macPackageName>
+                        <macSigningKeyUserName>Developer ID Application: Your Name (XXXXXXXXXX)</macSigningKeyUserName>
+
                     </configuration>
                 </plugin>
 
