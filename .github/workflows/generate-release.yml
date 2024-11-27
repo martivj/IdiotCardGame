@@ -132,11 +132,21 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
+      - name: Upload Linux Artifact
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: idiot_1.0.0-1_amd64.deb
+          asset_name: IdiotCardGame-1.0.0-Linux
+          asset_content_type: application/octet-stream
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
       - name: Upload Windows Artifact
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: windows/Idiot-1.0.0.exe
+          asset_path: Idiot-1.0.0.exe
           asset_name: IdiotCardGame-1.0.0-Windows
           asset_content_type: application/octet-stream
         env:
@@ -146,18 +156,8 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: macos/Idiot-1.0.0.dmg
+          asset_path: Idiot-1.0.0.dmg
           asset_name: IdiotCardGame-1.0.0-macOS
-          asset_content_type: application/octet-stream
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-
-      - name: Upload Linux Artifact
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: linux/idiot_1.0.0-1_amd64.deb
-          asset_name: IdiotCardGame-1.0.0-Linux
           asset_content_type: application/octet-stream
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
