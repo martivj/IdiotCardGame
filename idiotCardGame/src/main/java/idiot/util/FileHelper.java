@@ -12,7 +12,7 @@ import java.util.List;
 
 public class FileHelper {
 
-    private static Path replayFolderPath = Paths.get("idiotCardGame/replays/");
+    private static Path replayFolderPath = Paths.get("replays/");
 
     public static void setReplayFolderPath(Path path) {
         replayFolderPath = path;
