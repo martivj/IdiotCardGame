@@ -17,7 +17,7 @@ import idiot.util.GameStateConverter;
 import idiot.util.GuiHelper;
 
 public class Game {
-    
+
     /* initial boolean states */
 
     private boolean gameOver = false;
@@ -27,7 +27,7 @@ public class Game {
 
     private String currentState;
     private List<String> recordedGameStates = new ArrayList<>();
-    
+
     /* game elements */
 
     private CardDeck deck = new CardDeck(); // the main deck to draw cards from
@@ -41,18 +41,20 @@ public class Game {
     private CardStack player1Stack1 = new CardStack(); // the left-most card stack for player 1
     private CardStack player1Stack2 = new CardStack(); // the middle card stack for player 1
     private CardStack player1Stack3 = new CardStack(); // the right-most card stack for player 1
-    
+
     private CardStack player2Stack1 = new CardStack(); // the left-most card stack for player 2
     private CardStack player2Stack2 = new CardStack(); // the middle card stack for player 2
     private CardStack player2Stack3 = new CardStack(); // the right-most card stack for player 2
-    
+
     private CardContainer[] gameElements = new CardContainer[11];
 
     /* players for the game */
 
     private Player activePlayer;
-    private Player player1 = new Player(this, deck, mainPile, discardPile, player1hand, player1Stack1, player1Stack2, player1Stack3);
-    private AIPlayer player2 = new AIPlayer(this, deck, mainPile, discardPile, player2hand, player2Stack1, player2Stack2, player2Stack3);
+    private Player player1 = new Player(this, deck, mainPile, discardPile, player1hand, player1Stack1, player1Stack2,
+            player1Stack3);
+    private AIPlayer player2 = new AIPlayer(this, deck, mainPile, discardPile, player2hand, player2Stack1,
+            player2Stack2, player2Stack3);
 
     /* connection to gui controller */
 
@@ -65,7 +67,7 @@ public class Game {
         // set controller and load initial set of cards to gui deck
         this.controller = controller;
         this.initializeGuiDeck();
-        
+
         // grouping game elements
         this.gameElements[0] = this.deck;
         this.gameElements[1] = this.mainPile;
@@ -82,7 +84,7 @@ public class Game {
     }
 
     /* shuffle the deck, distribute cards and start the game */
-    
+
     public void start() {
 
         // save initial state
@@ -121,21 +123,22 @@ public class Game {
         // get comparator
         CardComparator comparator = new CardComparator();
 
-        // lowest cards in terms of face value from each player 
+        // lowest cards in terms of face value from each player
         Card player1Card = this.player1hand.getLowestCard();
         Card player2Card = this.player2hand.getLowestCard();
 
         // player 1 start requirement
         if (comparator.compare(player1Card, player2Card) < 0)
-        this.activePlayer = player1;
-        
+            this.activePlayer = player1;
+
         // player 2 starts otherwise
-        else this.activePlayer = player2;
+        else
+            this.activePlayer = player2;
 
         // start turn
         this.controller.handlePlayerSwitch();
         this.activePlayer.beginTurn();
-    
+
     }
 
     /* "interface" for the AI player to reach the controller */
@@ -164,18 +167,19 @@ public class Game {
     }
 
     public void switchPlayer() {
-        
+
         // switch active player
         if (this.activePlayer instanceof AIPlayer)
-        this.activePlayer = this.player1;
-        else this.activePlayer = this.player2;
+            this.activePlayer = this.player1;
+        else
+            this.activePlayer = this.player2;
 
         // update gui label
         this.controller.handlePlayerSwitch();
-        
+
         // begin new turn
         this.activePlayer.beginTurn();
-        
+
     }
 
     /* initialize gui */
@@ -183,7 +187,7 @@ public class Game {
     public void initializeGuiDeck() {
         this.controller.initializeGuiDeck(this.deck);
     }
-    
+
     /* register game state and update gui */
 
     public void updateState() {
@@ -194,7 +198,6 @@ public class Game {
         // update gui
         this.controller.handleUpdateState(this.gameElements);
     }
-        
 
     /* game state changed -> record it */
 
@@ -205,7 +208,7 @@ public class Game {
 
         // state unchanged -> do nothing
         if (state.equals(this.currentState))
-        return;
+            return;
 
         // otherwise save new state
         this.currentState = state;
@@ -223,7 +226,7 @@ public class Game {
             this.isSaved = true;
             System.out.println("Replay file saved to " + path);
         } catch (IOException e) {
-            System.out.println("Could not save the replay file");
+            System.out.println("Could not save the replay file: " + e);
         }
     }
 
