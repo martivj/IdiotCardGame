@@ -99,7 +99,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ubuntu-latest-artifact
-          path: idiotCardGame/target/dist/Idiot-1.0.0.deb
+          path: idiotCardGame/target/dist/idiot_1.0.0-1_amd64.deb
 
       - name: Download Windows Artifact
         uses: actions/download-artifact@v4
@@ -131,8 +131,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: idiotCardGame/target/dist/Idiot-1.0.0.deb
-          asset_name: Idiot-1.0.0.deb
+          asset_path: idiotCardGame/target/dist/idiot_1.0.0-1_amd64.deb
+          asset_name: IdiotCardGame-1.0.0.deb
           asset_content_type: application/vnd.debian.binary-package
 
       - name: Upload Windows Artifact
@@ -142,7 +142,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: idiotCardGame/target/dist/Idiot-1.0.0.exe
-          asset_name: Idiot-1.0.0.exe
+          asset_name: IdiotCardGame-1.0.0.exe
           asset_content_type: application/vnd.microsoft.portable-executable
 
       - name: Upload macOS Artifact
@@ -152,5 +152,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: idiotCardGame/target/dist/Idiot-1.0.0.dmg
-          asset_name: Idiot-1.0.0.dmg
+          asset_name: IdiotCardGame-1.0.0.dmg
           asset_content_type: application/x-apple-diskimage
