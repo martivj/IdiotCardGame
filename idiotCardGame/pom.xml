@@ -211,8 +211,6 @@
                         <linuxMenuGroup>Idiot</linuxMenuGroup>
                         <linuxPackageName>idiot</linuxPackageName>
                         <linuxAppVersion>1.0.0</linuxAppVersion>
-                        <linuxDebMaintainer>martinvagseterjakobsen@yahoo.no</linuxDebMaintainer>
-                        <linuxDebRevision>0</linuxDebRevision>
 
                         <!-- windows options -->
                         <winDirChooser>true</winDirChooser>
