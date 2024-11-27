@@ -209,8 +209,7 @@
                         <!-- linux options -->
                         <linuxShortcut>true</linuxShortcut>
                         <linuxMenuGroup>Idiot</linuxMenuGroup>
-                        <linuxPackageName>Idiot</linuxPackageName>
-                        <linuxVersion>1.0.0</linuxVersion>
+                        <linuxPackageName>idiot-1.0.0</linuxPackageName>
 
                         <!-- windows options -->
                         <winDirChooser>true</winDirChooser>
