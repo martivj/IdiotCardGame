@@ -22,10 +22,10 @@ jobs:
           commit_message=$(git log -1 --pretty=%B)
           echo "Commit message: $commit_message"
           if [[ "$commit_message" == *"[release]"* ]]; then
-            echo "NEW_RELEASE=true" >> $GITHUB_ENV
+            echo "NEW_RELEASE=true" >> $GITHUB_OUTPUT
             echo "NEW_RELEASE=true"
           else
-            echo "NEW_RELEASE=false" >> $GITHUB_ENV
+            echo "NEW_RELEASE=false" >> $GITHUB_OUTPUT
             echo "NEW_RELEASE=false"
           fi
         shell: bash

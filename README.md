@@ -31,6 +31,8 @@ The code implementation takes this game into a JavaFX GUI environment, where a p
 
 ## Usage
 
+### Running the Application
+
 To run the application locally, follow these steps:
 
 Clone the repository:
@@ -53,6 +55,20 @@ mvn javafx:run
 ```
 
 When a game is finished, the player is prompted to save a replay file. The replays are stored as `.txt` files in the [`replays`](./idiotCardGame/replays/) folder in the project directory, and can be exported to another location if desired.
+
+### Building binaries
+
+To build a standalone executable, start by running the following command:
+
+- `mvn javafx:jlink`
+
+Next, depending on your operating system, run either of the following commands:
+
+- `mvn jpackage:jpackage -Pwindows`
+- `mvn jpackage:jpackage -Pmac`
+- `mvn jpackage:jpackage -Plinux`
+
+The executable will then be located in the `target/dist` folder.
 
 ## Additional Documentation
 
