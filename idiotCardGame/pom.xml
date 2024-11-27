@@ -195,9 +195,9 @@
                     <configuration>
 
                         <!-- General options -->
-                        <name>ByteChat</name>
+                        <name>Idiot</name>
                         <appVersion>1.0.0</appVersion>
-                        <vendor>it1901</vendor>
+                        <vendor>martivj</vendor>
                         <destination>target/dist</destination>
                         <module>idiot/idiot.gui.GameApp</module>
                         <runtimeImage>target/idiotfx</runtimeImage>
