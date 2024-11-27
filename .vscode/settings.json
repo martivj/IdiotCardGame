@@ -1,3 +1,6 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "git.inputValidation": true,
+    "git.inputValidationLength": 72,
+    "git.inputValidationSubjectLength": 50,
 }
