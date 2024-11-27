@@ -57,14 +57,7 @@ jobs:
 
       - name: Build with Maven
         shell: bash
-        run: |
-          if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
-            mvn clean install -P linux
-          elif [[ "${{ matrix.os }}" == "windows-latest" ]]; then
-            mvn clean install -P windows
-          elif [[ "${{ matrix.os }}" == "macos-latest" ]]; then
-            mvn clean install -P mac
-          fi
+        run: mvn clean install
 
       - name: Make runtime with jlink
         shell: bash
@@ -74,11 +67,11 @@ jobs:
         shell: bash
         run: |
           if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
-            mvn jpackage:build -P linux
+            mvn jpackage:jpackage -Plinux
           elif [[ "${{ matrix.os }}" == "windows-latest" ]]; then
-            mvn jpackage:build -P windows
+            mvn jpackage:jpackage -Pwindows
           elif [[ "${{ matrix.os }}" == "macos-latest" ]]; then
-            mvn jpackage:build -P mac
+            mvn jpackage:jpackage -Pmac
           fi
 
       - name: Archive artifacts
