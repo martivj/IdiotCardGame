@@ -120,6 +120,15 @@ jobs:
         with:
           name: macos-latest-artifact
 
+      - name: Unzip Linux Artifact
+        run: unzip ubuntu-latest-artifact.zip -d linux
+
+      - name: Unzip Windows Artifact
+        run: unzip windows-latest-artifact.zip -d windows
+
+      - name: Unzip macOS Artifact
+        run: unzip macos-latest-artifact.zip -d macos
+
       - name: Create Release Draft
         id: create_release
         uses: comnoco/create-release-action@v2
@@ -136,7 +145,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: Idiot-1.0.0.exe
+          asset_path: windows/Idiot-1.0.0.exe
           asset_name: IdiotCardGame-1.0.0-Windows
           asset_content_type: application/vnd.microsoft.portable-executable
         env:
@@ -146,7 +155,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: Idiot-1.0.0.dmg
+          asset_path: macos/Idiot-1.0.0.dmg
           asset_name: IdiotCardGame-1.0.0-macOS
           asset_content_type: application/x-apple-diskimage
         env:
@@ -156,7 +165,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: idiot_1.0.0-1_amd64.deb
+          asset_path: linux/idiot_1.0.0-1_amd64.deb
           asset_name: IdiotCardGame-1.0.0-Linux
           asset_content_type: application/vnd.debian.binary-package
         env:
