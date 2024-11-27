@@ -74,6 +74,14 @@ jobs:
             mvn jpackage:jpackage -Pmac
           fi
 
+      - name: List target folder
+        shell: bash
+        run: ls -la target
+
+      - name: List target/dist folder
+        shell: bash
+        run: ls -la target/dist
+
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
         with:
