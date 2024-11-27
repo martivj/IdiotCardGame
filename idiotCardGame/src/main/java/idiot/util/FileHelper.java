@@ -12,7 +12,7 @@ import java.util.List;
 
 public class FileHelper {
 
-    private static Path replayFolderPath = Paths.get("src/main/resources/idiot/replays/");
+    private static Path replayFolderPath = Paths.get("idiotCardGame/replays/");
 
     public static void setReplayFolderPath(Path path) {
         replayFolderPath = path;
@@ -23,17 +23,24 @@ public class FileHelper {
     }
 
     public static void writeLines(String fileName, List<String> lines) throws IOException {
-        Files.write(replayFolderPath.resolve(fileName), lines, Charset.defaultCharset(), StandardOpenOption.CREATE,
-                    StandardOpenOption.TRUNCATE_EXISTING);
+        Path filePath = replayFolderPath.resolve(fileName);
+        Files.createDirectories(filePath.getParent()); // Ensure the directory exists
+        Files.write(filePath, lines, Charset.defaultCharset(), StandardOpenOption.CREATE,
+                StandardOpenOption.TRUNCATE_EXISTING);
     }
 
     public static List<String> getReplayNames() {
         File folder = replayFolderPath.toFile();
-        File[] files = folder.listFiles();
         List<String> fileNames = new ArrayList<>();
-        for (File file : files) {
-            if (!file.isDirectory())
-                fileNames.add(file.getName());
+        if (folder.exists() && folder.isDirectory()) {
+            File[] files = folder.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    if (!file.isDirectory()) {
+                        fileNames.add(file.getName());
+                    }
+                }
+            }
         }
         return fileNames;
     }
