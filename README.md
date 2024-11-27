@@ -1,6 +1,6 @@
 # IdiotCardGame
 
-This project is a simple implementation of the card game "Idiot" made using JavaFX. This document includes a description of the game itself, and a guide on how to run the application locally. 
+This project is a simple implementation of the card game "Idiot" made using JavaFX. This document includes a description of the game itself, and a guide on how to run the application locally.
 
 Further documentation on the code structure, design choices and testing approach can be found in the [Code Overview](./idiotCardGame/README.md) document.
 
@@ -25,8 +25,8 @@ The game continues until one player has gotten rid of all their cards.
 The code implementation takes this game into a JavaFX GUI environment, where a player can play against a simple AI. After pressing "start" on the game page, available actions appear as buttons with labels "play", "draw pile" and "end turn". When a winner is crowned, the player is prompted to save a replay file of the game. From the main menu, the player can then choose to "Watch Replay", where any replay file in the replay folder can be played back. Simple controls like "go forward", "go backwards" and "go to end" are here provided for navigating through the replay file.
 
 <p align="center">
-  <img src="./idiotCardGame/images/game-screenshot.png" alt="Game Screenshot" width="49%" />
-  <img src="./idiotCardGame/images/replay-screenshot.png" alt="Replay Screenshot" width="49%" />
+  <img src="./idiotCardGame/images/game-screenshot.PNG" alt="Game Screenshot" width="49%" />
+  <img src="./idiotCardGame/images/replay-screenshot.PNG" alt="Replay Screenshot" width="49%" />
 </p>
 
 ## Usage
@@ -34,17 +34,20 @@ The code implementation takes this game into a JavaFX GUI environment, where a p
 To run the application locally, follow these steps:
 
 Clone the repository:
+
 ```sh
 git clone https://github.com/martivj/IdiotCardGame.git
 cd IdiotCardGame/idiotCardGame
 ```
 
 Build the project using Maven:
+
 ```sh
 mvn clean install
 ```
 
 Run the application:
+
 ```sh
 mvn javafx:run
 ```

@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "idiotCardGame/**"
+    # paths:
+    #   - "idiotCardGame/**"
 
 jobs:
   check-commit-message:
