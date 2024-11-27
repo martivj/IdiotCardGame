@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    # paths:
-    #   - "idiotCardGame/**"
 
 jobs:
   check-commit-message:
@@ -58,6 +56,7 @@ jobs:
           cache: "maven"
 
       - name: Build with Maven
+        shell: bash
         run: |
           if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
             mvn clean install -P linux
@@ -68,9 +67,11 @@ jobs:
           fi
 
       - name: Make runtime with jlink
+        shell: bash
         run: mvn javafx:jlink
 
       - name: Package with jpackage
+        shell: bash
         run: |
           if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
             mvn jpackage:build -P linux
