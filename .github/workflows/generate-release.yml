@@ -83,7 +83,7 @@ jobs:
         with:
           name: ${{ matrix.os }}-artifact
           path: |
-            idiotCardGame/target/dist/Idiot-1.0.0.deb
+            idiotCardGame/target/dist/idiot_1.0.0_amd64.deb
             idiotCardGame/target/dist/Idiot-1.0.0.exe
             idiotCardGame/target/dist/Idiot-1.0.0.dmg
 
