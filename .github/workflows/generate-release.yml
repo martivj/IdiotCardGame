@@ -35,9 +35,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-    defaults:
-      run:
-        working-directory: idiotCardGame
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -57,15 +54,20 @@ jobs:
 
       - name: Build with Maven
         shell: bash
-        run: mvn clean install
+        run: |
+          cd idiotCardGame
+          mvn clean install
 
       - name: Make runtime with jlink
         shell: bash
-        run: mvn javafx:jlink
+        run: |
+          cd idiotCardGame
+          mvn javafx:jlink
 
       - name: Package with jpackage
         shell: bash
         run: |
+          cd idiotCardGame
           if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
             mvn jpackage:jpackage -Plinux
           elif [[ "${{ matrix.os }}" == "windows-latest" ]]; then
@@ -77,11 +79,11 @@ jobs:
       - name: Rename executable
         run: |
           if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
-            mv target/dist/idiot_1.0.0-1_amd64.deb idiot_1.0.0-1_amd64.deb
+            mv idiotCardGame/target/dist/idiot_1.0.0-1_amd64.deb idiot_1.0.0-1_amd64.deb
           elif [[ "${{ matrix.os }}" == "windows-latest" ]]; then
-            mv target/dist/Idiot-1.0.0.exe Idiot-1.0.0.exe
+            mv idiotCardGame/target/dist/Idiot-1.0.0.exe Idiot-1.0.0.exe
           elif [[ "${{ matrix.os }}" == "macos-latest" ]]; then
-            mv target/dist/Idiot-1.0.0.dmg Idiot-1.0.0.dmg
+            mv idiotCardGame/target/dist/Idiot-1.0.0.dmg Idiot-1.0.0.dmg
           fi
 
         shell: bash
