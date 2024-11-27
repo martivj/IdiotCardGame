@@ -34,8 +34,7 @@ jobs:
     if: needs.check-commit-message.outputs.new_release == 'True'
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        # os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -110,19 +109,16 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ubuntu-latest-artifact
-          # path: idiot_1.0.0-1_amd64.deb
 
-      # - name: Download Windows Artifact
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: windows-latest-artifact
-      #     # path: Idiot-1.0.0.exe
+      - name: Download Windows Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: windows-latest-artifact
 
-      # - name: Download macOS Artifact
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: macos-latest-artifact
-      #     # path: Idiot-1.0.0.dmg
+      - name: Download macOS Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: macos-latest-artifact
 
       - name: Create Release Draft
         id: create_release
@@ -136,26 +132,25 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      # - name: Upload Windows Artifact
-      #   uses: actions/upload-release-asset@v1
-      #   with:
-      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-      #     # asset_path: Idiot-1.0.0.exe
-      #     asset_path: windows-latest-artifact
-      #     asset_name: IdiotCardGame-1.0.0-Windows
-      #     asset_content_type: application/vnd.microsoft.portable-executable
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Upload Windows Artifact
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: Idiot-1.0.0.exe
+          asset_name: IdiotCardGame-1.0.0-Windows
+          asset_content_type: application/vnd.microsoft.portable-executable
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      # - name: Upload macOS Artifact
-      #   uses: actions/upload-release-asset@v1
-      #   with:
-      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-      #     asset_path: Idiot-1.0.0.dmg
-      #     asset_name: IdiotCardGame-1.0.0-macOS
-      #     asset_content_type: application/x-apple-diskimage
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Upload macOS Artifact
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: Idiot-1.0.0.dmg
+          asset_name: IdiotCardGame-1.0.0-macOS
+          asset_content_type: application/x-apple-diskimage
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Upload Linux Artifact
         uses: actions/upload-release-asset@v1
