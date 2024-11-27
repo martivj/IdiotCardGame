@@ -1,6 +1,42 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive",
-    "git.inputValidation": true,
-    "git.inputValidationLength": 72,
-    "git.inputValidationSubjectLength": 50,
+  // Set Git Bash as the default terminal on Windows
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  // Git validation and settings
+  "git.inputValidation": true,
+  "git.inputValidationSubjectLength": 50,
+  "git.inputValidationLength": 72,
+  "git.autofetch": true,
+  // Editor settings
+  "editor.quickSuggestions": {
+    "other": "on",
+    "comments": "off",
+    "strings": "on"
+  },
+  // Formatting settings
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "diffEditor.ignoreTrimWhitespace": false
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  }
 }
